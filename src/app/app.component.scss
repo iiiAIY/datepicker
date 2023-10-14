@@ -3,6 +3,6 @@
   margin: 100px auto;
   text-align: center;
 }
-.customForm.ng-touched.ng-invalid {
+.customForm.ng-invalid.is-invalid {
     border: 1px solid red;
 }

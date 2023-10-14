@@ -1,6 +1,7 @@
 <div class="container">
   <form [formGroup]="myForm">
     <datepicker class = "customForm"
+      [ngClass]="{'is-invalid': myForm.controls['startDate'].errors}"
       [placeholderDate]="'Дата начала'"
       [datePicker] = "true"
       [minRangeDateTimeFromCurrentYear]="'1 year'"
@@ -9,6 +10,7 @@
     >
     </datepicker>
     <datepicker class = "customForm"
+      [ngClass]="{'is-invalid': myForm.controls['endDate'].errors}"
       [placeholderDate]="'Дата окончания'"
       [datePicker] = "true"
       [minRangeDateTimeFromCurrentYear]="'1 year'"
@@ -16,7 +18,6 @@
       formControlName="endDate"
     >
     </datepicker>
-    <button (click)="log()">Log</button>
   </form>
 </div>
 
