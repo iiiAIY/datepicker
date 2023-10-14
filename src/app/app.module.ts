@@ -8,6 +8,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatIconModule} from "@angular/material/icon";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatDatepickerModule,
     MatButtonModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
