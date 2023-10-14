@@ -1,15 +1,22 @@
 <div class="container">
-  <datepicker
-    [placeholderDate]="'Дата начала'"
-    [datePicker] = "true"
-    [minRangeDateTimeFromCurrentYear]="'1 year'"
-    [maxRangeDateTimeFromCurrentYear]="1"
-  >
-  </datepicker>
-  <datepicker
-    [placeholderDate]="'Дата окончания'"
-    [datePicker] = "true"
-  >
-  </datepicker>
+  <form [formGroup]="myForm">
+    <datepicker class = "customForm"
+      [placeholderDate]="'Дата начала'"
+      [datePicker] = "true"
+      [minRangeDateTimeFromCurrentYear]="'1 year'"
+      [maxRangeDateTimeFromCurrentYear]="'1 year'"
+      formControlName="startDate"
+    >
+    </datepicker>
+    <datepicker class = "customForm"
+      [placeholderDate]="'Дата окончания'"
+      [datePicker] = "true"
+      [minRangeDateTimeFromCurrentYear]="'1 year'"
+      [maxRangeDateTimeFromCurrentYear]="'1 year'"
+      formControlName="endDate"
+    >
+    </datepicker>
+    <button (click)="log()">Log</button>
+  </form>
 </div>
 

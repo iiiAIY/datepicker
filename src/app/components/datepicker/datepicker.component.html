@@ -1,7 +1,8 @@
 <mat-form-field class="example-form-field my-dtpicker">
-  <input matInput class="dt-input" [min]="_minDate" [max]="_maxDate" [placeholder]="_placeholderDate" [matDatepicker]="datepicker" (dateChange)="setDate($event)">
+  <input matInput class="dt-input" [min]="_minDate" [max]="_maxDate" [placeholder]="_placeholderDate"
+         [matDatepicker]="datepicker" (dateChange)="setDate($event)" (blur)="_onTouched()">
   <mat-hint>ММ/ДД/ГГГГ</mat-hint>
-  <mat-datepicker-toggle *ngIf="_datepicker" matSuffix [for]="datepicker"></mat-datepicker-toggle>
+  <mat-datepicker-toggle *ngIf="_datepicker" matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
   <mat-datepicker #datepicker>
     <mat-datepicker-actions>
       <button mat-button matDatepickerCancel>Cancel</button>

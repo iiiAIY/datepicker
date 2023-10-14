@@ -1,13 +1,25 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, forwardRef, Input, OnInit, Provider} from '@angular/core';
 import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 import {D} from "@angular/cdk/keycodes";
+import {ControlValueAccessor, FormControlName, FormGroup, NG_VALUE_ACCESSOR} from "@angular/forms";
+
+const CONTROL_VALUE_ACCESSOR : Provider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => DatepickerComponent),
+  multi: true
+}
 
 @Component({
   selector: 'datepicker',
   templateUrl: './datepicker.component.html',
-  styleUrls: ['./datepicker.component.scss']
+  styleUrls: ['./datepicker.component.scss'],
+  providers: [CONTROL_VALUE_ACCESSOR]
 })
-export class DatepickerComponent implements OnInit {
+export class DatepickerComponent implements ControlValueAccessor {
+
+  public currentDate : Date | undefined;
+  private _onChange! : (currentDate : Date) => void;
+  public _onTouched! : () => void;
 
   public _placeholderDate : string = '';
   public _datepicker : boolean = false;
@@ -41,14 +53,20 @@ export class DatepickerComponent implements OnInit {
     }
   }
 
+  public writeValue(value: Date): void {
+    this.currentDate = value;
+  }
 
-  constructor() { }
+  public registerOnChange(fn: (value: Date) => void): void {
+    this._onChange = fn;
+  }
 
-  ngOnInit(): void {
+  public registerOnTouched(fn: () => void): void {
+    this._onTouched = fn;
   }
 
   setDate (event: MatDatepickerInputEvent<Date>) {
-    // this.minDate = event.target.value!;
-    // console.log(this.minDate)
+    const value = event.target.value!;
+    this._onChange(value)
   }
 }
