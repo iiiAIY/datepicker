@@ -64,7 +64,7 @@ export class DatepickerComponent implements ControlValueAccessor {
     this._onTouched = fn;
   }
 
-  setDate (event: MatDatepickerInputEvent<Date>) {
+  public setDate (event: MatDatepickerInputEvent<Date>) {
     const value = event.target.value!;
     this._onChange(value)
   }

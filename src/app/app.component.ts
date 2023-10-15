@@ -38,6 +38,9 @@ export class AppComponent implements OnInit, OnDestroy{
 
   }
 
+  public get formSD() {return this.myForm.controls['startDate']};
+  public get formED() {return this.myForm.controls['endDate']};
+
   private initForm(): FormGroup {
     const fg : FormGroup = new FormGroup({
       startDate : new FormControl<Date | null>(null),
