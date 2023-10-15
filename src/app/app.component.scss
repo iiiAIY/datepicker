@@ -1,0 +1,8 @@
+.container {
+  width: 1000px;
+  margin: 100px auto;
+  text-align: center;
+}
+.customForm.ng-invalid.is-invalid {
+    border: 1px solid red;
+}
